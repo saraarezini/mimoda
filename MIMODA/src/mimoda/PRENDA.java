@@ -9,8 +9,6 @@ package mimoda;
  * @author USUARIO
  */
 
-
-
 public class PRENDA {
   
 
