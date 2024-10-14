@@ -10,6 +10,8 @@ package mimoda;
  */
 public class MIMODA {
 
+    
+    
     /**
      * @param args the command line arguments
      */
