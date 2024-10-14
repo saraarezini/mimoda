@@ -19,9 +19,9 @@ public class MIMODA {
      */
     public static void main(String[] args) {
         
-        
-PRENDA prenda1 = new PRENDA("urbano", "rojo", 38, "poliéster", "primavera", true);
-        System.out.println("Test 1: Constructor Paramétrico");
+        // Test Constructores
+        PRENDA prenda1 = new PRENDA("urbano", "rojo", 38, "poliester", "primavera", true);
+        System.out.println("Test 1: Constructor Parametrico");
         System.out.println(prenda1.toString());  
         System.out.println();
 
@@ -30,6 +30,12 @@ PRENDA prenda1 = new PRENDA("urbano", "rojo", 38, "poliéster", "primavera", tru
         System.out.println(prenda2.toString());  
         System.out.println();
 
+        PRENDA prendaCopia = new PRENDA(prenda1);
+        System.out.println("Test 3: Constructor Copia");
+        System.out.println(prendaCopia.toString());  
+        System.out.println();
+        
+        // Test getters y setters
         
         prenda1.setTipoEstilo("formal");
         prenda1.setColorPrimario("azul");
@@ -37,14 +43,10 @@ PRENDA prenda1 = new PRENDA("urbano", "rojo", 38, "poliéster", "primavera", tru
         prenda1.setMaterial("seda");
         prenda1.setTemporada("invierno");
         prenda1.setDisponible(false);
-        System.out.println("Test 3: Modificar valores con Setters");
+        System.out.println("Test 4 : Modificar valores con Setters");
         System.out.println(prenda1.toString());  
         System.out.println();
 
-        
-        PRENDA prendaCopia = new PRENDA(prenda1);
-        System.out.println("Test 4: Constructor Copia");
-        System.out.println(prendaCopia.toString());  
-        System.out.println();
+ 
     }
 }

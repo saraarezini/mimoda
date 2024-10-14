@@ -4,6 +4,8 @@
  */
 package mimoda;
 
+import java.util.Objects;
+
 /**
  *
  * @author USUARIO
@@ -13,7 +15,9 @@ package mimoda;
 
 public class PRENDA {
   
-
+    //----------------------------------------------------------------------
+    // Atributos
+    //----------------------------------------------------------------------
     public static final int MAX_TALLA = 50;  
     public static final int MIN_TALLA = 1;   
     
@@ -24,6 +28,12 @@ public class PRENDA {
     private String temporada;        
     private boolean disponible;     
 
+    
+    
+    //----------------------------------------------------------------------
+    // Constructores
+    //----------------------------------------------------------------------
+    
     public PRENDA (String tipoEstilo, String colorPrimario, int tallaPrenda, String material, String temporada, boolean disponible) {
         this.tipoEstilo = tipoEstilo;
         this.colorPrimario = colorPrimario;
@@ -40,7 +50,7 @@ public class PRENDA {
     }
 
     public PRENDA() {
-        this("moderno", "negro", 10, "algodón", "verano", true);  
+        this("basico", "negro", 10, "tela normal", "primavera", true);  
     }
 
     public PRENDA(PRENDA otraPrenda) {
@@ -52,12 +62,16 @@ public class PRENDA {
         this.disponible = otraPrenda.disponible;
     }
 
+    
+    //----------------------------------------------------------------------
+    // getters & setters
+    //----------------------------------------------------------------------
+    
     public String getTipoEstilo() {
         return tipoEstilo;
     }
 
     
-
     public String getColorPrimario() {
         return colorPrimario;
     }
@@ -90,7 +104,7 @@ public class PRENDA {
         if (tallaPrenda >= MIN_TALLA && tallaPrenda <= MAX_TALLA) {
             this.tallaPrenda = tallaPrenda;
         } else {
-            throw new IllegalArgumentException("Talla fuera de los límites permitidos");
+            throw new IllegalArgumentException("Talla fuera de los limites permitidos");
         }
     }
 
@@ -107,6 +121,9 @@ public class PRENDA {
     }
     
     
+    //----------------------------------------------------------------------
+    // Metodos
+    //----------------------------------------------------------------------
     
     @Override
     public String toString() {
@@ -121,6 +138,49 @@ public class PRENDA {
         sb.append('}');
         return sb.toString();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.tipoEstilo);
+        hash = 97 * hash + Objects.hashCode(this.colorPrimario);
+        hash = 97 * hash + this.tallaPrenda;
+        hash = 97 * hash + Objects.hashCode(this.material);
+        hash = 97 * hash + Objects.hashCode(this.temporada);
+        hash = 97 * hash + (this.disponible ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PRENDA other = (PRENDA) obj;
+        if (this.tallaPrenda != other.tallaPrenda) {
+            return false;
+        }
+        if (this.disponible != other.disponible) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoEstilo, other.tipoEstilo)) {
+            return false;
+        }
+        if (!Objects.equals(this.colorPrimario, other.colorPrimario)) {
+            return false;
+        }
+        if (!Objects.equals(this.material, other.material)) {
+            return false;
+        }
+        return Objects.equals(this.temporada, other.temporada);
+    }
+    
     
     
 }
